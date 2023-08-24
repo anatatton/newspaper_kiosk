@@ -1,0 +1,53 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Diario </title>
+	<style>
+		*{
+			font-family: sans-serif;
+      text-align: center;
+		}
+    h1{
+      background-color: lightgoldenrodyellow;
+    }
+    button{
+      position: relative;
+      margin-top: 10px;
+      margin-right: 100px;
+      align-content: center;
+    }
+	</style>
+</head>
+<body>
+	<h1> Diarios Online </h1>
+	<button onclick="navigate('prev')">Anterior</button>
+	<button onclick="navigate('next')">Siguiente</button>
+	<iframe id="frame" src="https://www.abc.com.py/" width="1200" height="600"></iframe>
+	<script>
+		var diarios = [
+    "https://www.abc.com.py/",
+    "https://www.ultimahora.com/",
+    "https://www.hoy.com.py/",
+
+];
+
+let currentIndex = 0;
+
+    function navigate(direction) {
+      if (direction == 'next') {
+        currentIndex += 1;
+        currentIndex= currentIndex % diarios.length;
+      } else if (direction == 'prev') {
+        currentIndex -= 1; 
+        currentIndex = currentIndex % diarios.length;
+      }
+
+      var diarioFrame = document.getElementById('frame');
+      diarioFrame.src = diarios[currentIndex];
+    }
+	</script>
+</body>
+</html>
+<!--Ana Tatton 3B!>
